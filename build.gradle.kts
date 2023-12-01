@@ -1,15 +1,22 @@
 plugins {
+    application
     kotlin("jvm") version "1.9.20"
 }
 
-sourceSets {
+
+tasks {
+    sourceSets {
     main {
         kotlin.srcDir("src")
     }
 }
 
-tasks {
     wrapper {
         gradleVersion = "8.5"
     }
 }
+
+application {
+    mainClass = "Day01Kt"
+}
+
