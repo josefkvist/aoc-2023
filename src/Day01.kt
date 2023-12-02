@@ -36,7 +36,6 @@ fun main() {
         var returnVal: Int = 0
         for (i in input) {
             var line: String = i
-            println(line)
             var first: Char = '0'
             firstFor@ for ((index, value) in line.withIndex()) {
                 if (value.isDigit()) {
@@ -72,7 +71,6 @@ fun main() {
             }
             var full: String = "${first}${last}"
             var value = full.toInt()
-            println(value)
             returnVal += value
         }
 
