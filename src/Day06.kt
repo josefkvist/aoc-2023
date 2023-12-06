@@ -58,7 +58,6 @@ fun main() {
     second.println()
     var tot = (second - first + 1)
     println(tot)
-    tot
 
     return tot
   }
