@@ -1,4 +1,8 @@
+import kotlin.time.DurationUnit
+import kotlin.time.TimeSource
+
 fun main() {
+  println("Day05")
   fun part1(input: List<String>): Long {
     var seeds: LongArray =
         input[0].split(" ").filter { !it.contains("seeds") }.map { it.toLong() }.toLongArray()
@@ -170,7 +174,6 @@ fun main() {
     }
     // get min from minstart
     var min = seeds.map { it.start }.toLongArray().min()
-    println(min)
     return min
   }
 
@@ -181,8 +184,17 @@ fun main() {
   var result2 = 46
   check(part2(testInput2) == result2.toLong())
   val input = readInput("Day05")
-  // part1(input).println()
+  val timeSource = TimeSource.Monotonic
+  val mark1 = timeSource.markNow()
+
+  part1(input).println()
+  val mark2 = timeSource.markNow()
+
   part2(input).println()
+  val mark3 = timeSource.markNow()
+
+  println((mark2 - mark1).toString(DurationUnit.MICROSECONDS))
+  println((mark3 - mark2).toString(DurationUnit.MICROSECONDS))
 }
 
 data class MapContainer(val name: String, var maps: ArrayList<Map>)
